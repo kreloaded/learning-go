@@ -24,10 +24,17 @@ func main() {
 	}
 
 	alex.print()
+	jim := alex.updateName("Jim")
+	jim.print()
+}
 
+func (p person) updateName(newName string) person {
+	p.firstName = newName
+
+	return p
 }
 
 func (p person) print() {
 	fmt.Println(p)
-	fmt.Printf("%+v", p)
+	// fmt.Printf("%+v", p)
 }
