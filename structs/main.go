@@ -23,15 +23,20 @@ func main() {
 		},
 	}
 
+	// Pass by value
+	// alex.print()
+	// jim := alex.updateName("Jim")
+	// jim.print()
+
+	// Pass by reference
 	alex.print()
-	jim := alex.updateName("Jim")
-	jim.print()
+	alexPointer := &alex
+	alexPointer.updateName("Jim")
+	alex.print()
 }
 
-func (p person) updateName(newName string) person {
-	p.firstName = newName
-
-	return p
+func (personPointerToValue *person) updateName(newName string) {
+	(*personPointerToValue).firstName = newName
 }
 
 func (p person) print() {
